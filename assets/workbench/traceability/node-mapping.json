@@ -1,0 +1,10 @@
+{
+  "type": "spec",
+  "feature": "feature_id",
+  "id": "node_id",
+  "properties": "node_properties",
+  "edges": "node_edges",
+  "fields": {"title": "title", "description": "content", "importance": "importance"},
+  "links": {"requirements": "fulfills", "children": "contains", "parent": "parent_spec", "flow": "flows_to"},
+  "defaults": {"kind": "logic", "importance": "normal", "input": "", "output": ""}
+}

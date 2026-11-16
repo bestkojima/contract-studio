@@ -1,0 +1,95 @@
+[needs.types.spec.fields.importance]
+description = "Node importance, independent of execution and verification status"
+schema = { type = "string", enum = ["core", "key", "normal"] }
+default = "normal"
+nullable = false
+
+[needs.types.spec.fields.feature_id]
+description = "Functional view owning this specification"
+schema = { type = "string" }
+
+[needs.types.spec.fields.node_id]
+description = "Existing canvas ID; omitted for new specs which use their need ID"
+schema = { type = "string" }
+
+[needs.types.spec.fields.node_properties]
+description = "Node behavior and arbitrary properties as a JSON object"
+schema = { type = "string" }
+
+[needs.types.spec.fields.contract_source]
+description = "Editable legacy contract source, supplied only by the framework exporter"
+schema = { type = "string" }
+
+[needs.types.spec.fields.node_edges]
+description = "Optional detailed outgoing data-flow edges as a JSON array"
+schema = { type = "string" }
+
+[needs.types.req.fields.requirement_properties]
+description = "Revision and confirmation snapshots for authored requirement documents"
+schema = { type = "string" }
+
+[needs.types.impl.fields.source_path]
+description = "Repository-relative implementation file"
+schema = { type = "string" }
+
+[needs.types.impl.fields.source_symbol]
+description = "Declared function identity, resolved against CodeLinks entities"
+schema = { type = "string" }
+
+[needs.links.fulfills]
+outgoing = "fulfills"
+incoming = "fulfilled by"
+
+[needs.links.contains]
+outgoing = "contains"
+incoming = "contained by"
+
+[needs.links.parent_spec]
+outgoing = "parent specification"
+incoming = "child specification"
+
+[needs.links.flows_to]
+outgoing = "flows to"
+incoming = "flows from"
+
+[needs.links.implements]
+outgoing = "implements"
+incoming = "implemented by"
+
+[needs.links.calls]
+outgoing = "declares calls to"
+incoming = "declared caller"
+
+[needs.links.verifies]
+outgoing = "verifies"
+incoming = "verified by"
+
+[codelinks]
+set_local_url = true
+
+[codelinks.projects.frontend.source_discover]
+src_dir = "../src"
+comment_type = "ts"
+[codelinks.projects.frontend.analyse]
+get_need_id_refs = true
+
+[codelinks.projects.features.source_discover]
+src_dir = "../features"
+comment_type = "ts"
+[codelinks.projects.features.analyse]
+get_need_id_refs = true
+get_multiline_needs = true
+
+[codelinks.projects.backend.source_discover]
+src_dir = "../server"
+comment_type = "ts"
+[codelinks.projects.backend.analyse]
+get_need_id_refs = true
+get_multiline_needs = true
+
+[codelinks.projects.tests.source_discover]
+src_dir = "../tests"
+comment_type = "ts"
+[codelinks.projects.tests.analyse]
+get_need_id_refs = true
+get_multiline_needs = true
